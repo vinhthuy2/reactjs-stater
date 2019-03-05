@@ -39,11 +39,11 @@ const cockpit = props => {
     buttonClass = classes.Red;
   }
 
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     classesAdded.push(classes.red);
   }
 
-  if (props.persons.length <= 1) {
+  if (props.personsLength <= 1) {
     classesAdded.push(classes.bold);
   }
 
@@ -58,5 +58,5 @@ const cockpit = props => {
     </div>
   );
 };
-
-export default cockpit;
+// Ract.memo() : shouldComponentUpdate()
+export default React.memo(cockpit);
