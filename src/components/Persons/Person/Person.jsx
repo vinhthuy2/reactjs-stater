@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import Aux from '../../../hoc/Auxiliary';
-import classes from './Person.css';
+import React, { Component } from 'react';
 import WithClass from '../../../hoc/WithClass';
+import classes from './Person.css';
 class Person extends Component {
   render() {
     console.log('[Person.jsx] renderings...');
