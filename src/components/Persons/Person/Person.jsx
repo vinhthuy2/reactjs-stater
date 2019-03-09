@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Aux from '../../../hoc/Auxiliary';
 import withClassWrapper from '../../../hoc/withClassWrapper';
 import classes from './Person.css';
-import Aux from '../../../hoc/Auxiliary';
+
 class Person extends Component {
   render() {
     console.log('[Person.jsx] renderings...');
@@ -21,5 +23,12 @@ class Person extends Component {
     );
   }
 }
+
+Person.propTypes = {
+  click: PropTypes.func,
+  name: PropTypes.string,
+  age: PropTypes.number,
+  changed: PropTypes.func
+};
 
 export default withClassWrapper(Person, classes.Person);
