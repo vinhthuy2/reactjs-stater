@@ -5,6 +5,15 @@ import withClassWrapper from '../../../hoc/withClassWrapper';
 import classes from './Person.css';
 
 class Person extends Component {
+  constructor() {
+    super();
+    this.inputElementRef = React.createRef();
+  }
+
+  componentDidMount = () => {
+    this.inputElementRef.current.focus();
+  };
+
   render() {
     console.log('[Person.jsx] renderings...');
     return (
@@ -16,6 +25,10 @@ class Person extends Component {
 
         <input
           type="text"
+          // ref={inputEl => {
+          //   this.inputElement = inputEl;
+          // }}
+          ref={this.inputElementRef}
           onChange={this.props.changed}
           value={this.props.name}
         />

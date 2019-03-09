@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = props => {
+  const toggleBtnRef = useRef(null);
+
   // the same usage with componentDidUpdate() and componentDidMount()
   // HTTP request
-
   useEffect(() => {
     console.log('[Cockpit.jsx] useEffect');
-    setTimeout(() => {
-      alert('This box will not show again');
-    }, 1000);
+    // setTimeout(() => {
+    //   alert('This box will not show again');
+    // }, 1000);
+
+    // this will get call when component is mounted
+    toggleBtnRef.current.click();
 
     // this will get called only when the component is unmounted
     return () => {
@@ -52,7 +56,11 @@ const cockpit = props => {
       <h1> {props.title}</h1>
       <p className={classesAdded.join(' ')}> This is really working! </p>
       {/* can be inefficient */}
-      <button className={buttonClass} onClick={props.clicked}>
+      <button
+        className={buttonClass}
+        onClick={props.clicked}
+        ref={toggleBtnRef}
+      >
         Toggle Persons
       </button>
     </div>
